@@ -1,14 +1,4 @@
-/* App.css */
-body {
-  width: 100%;
-  height: 100%;
-  margin:0;
-  display: flex;
-  flex-direction: column;  
-  align-items: center;
-  background-color: #000;
-}
-.pagination{
+/* .pagination{
   list-style: none;
   display: flex;
   justify-content: center;
@@ -16,7 +6,6 @@ body {
   margin-bottom: 5rem;
   font-size: 1.2rem;
   gap: 5px;
-  /* color: #4A0120; */
 }
   
   .pagination .page-num {
@@ -24,14 +13,13 @@ body {
     cursor: pointer;
     border-radius: 3px;
     font-weight: 400;
-    color: #fff;
   }
 
   .pagination .page-num:hover {
-    background-color: #000;
-    color: #4a0120;
+    background-color: #fff;
+    color: #fff;
   }
 
   .pagination .active {
-    background-color: #4a0120;
-  }
+    background-color: #fff;
+  } */

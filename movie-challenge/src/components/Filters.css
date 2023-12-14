@@ -1,6 +1,17 @@
 .filters-container {
     display: flex;
     justify-content: space-around;
-    margin: 10px 0; 
-}
+    margin: 20px 0; 
+  }
+  
+  select {
+    cursor: pointer;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 15px;
+    text-align: center;
+    background-color: #FE916F;
+  }
+  
 
+  

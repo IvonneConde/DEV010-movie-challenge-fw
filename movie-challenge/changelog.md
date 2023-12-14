@@ -1,21 +1,15 @@
-## <1.0.0> - <date>
+## 1.0.0 - 2023-11-22
 
-### Sprint learnings
+### Sprint learning
 
-En esta sección enumera los aprendizajes del sprint.
+- Petición con axios a la API de The Movie Database
+- Estructura con React
+- Uso de Hooks useState y useEffect 
+- Uso de props Modularización
 
 ### Added
 
-En esta sección especifica las funcionalides que agregaste.
-
-### Changed
-
-En esta sección detalla los cambios que hiciste a funcionalides ya existentes.
-
-### Fixed
-
-En esta sección describe los _bugs_ solucionados.
-
-### Removed
-
-En esta sección incluye las funcionalidades eliminadas.
+- API key
+- Visualización de peliculas con GRID
+- Buscador de peliculas 
+- Archivo Changelog
