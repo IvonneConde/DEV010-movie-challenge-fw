@@ -1,0 +1,57 @@
+.movie-details-container {
+  max-width: 90%;
+  padding: 0;
+  background-color: #000;
+  text-align: right;
+}
+
+.movie-details-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+
+}
+
+.movie-details-poster img {
+  max-width: 50%; 
+  border-radius: 8px;
+}
+
+.movie-details-info {
+  flex: 1;
+  margin-left: 20px; 
+  text-align: left; 
+  font-size: 14px;
+  color: #fff
+}
+
+.movie-details-info h1 {
+  font-size: 30px; 
+  color: #FE916F;
+}
+.back-button {
+  display: flex;
+  align-items: left;
+  background-color: #000;
+  color: #fff; 
+  padding: 10px;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  background-image: url('../assets/Logos/back.png');
+  background-repeat: no-repeat;
+  background-position: left center;
+  background-size: 10px; 
+  padding-left: 20px; 
+}
+
+.button-container {
+  margin-top: 7px;
+  margin-left: 250px;
+  padding: 10px;
+}
+button:hover {
+  transform: scale(1.1);
+}
+

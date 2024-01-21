@@ -1,17 +1,24 @@
 .filters-container {
-    display: flex;
-    justify-content: space-around;
-    margin: 20px 0; 
-  }
-  
-  select {
-    cursor: pointer;
-    padding: 5px;
-    border: 1px solid #ccc;
-    border-radius: 15px;
-    text-align: center;
-    background-color: #FE916F;
-  }
+  display: flex;
+  justify-content: space-around;
+  padding: 20px; 
+}
+
+.filter-button {
+  cursor: pointer;
+  padding: 5px 10px;
+  border: 1px solid #ccc;
+  border-radius: 15px;
+  text-align: center;
+  background-color: #FE916F;
+  color: #fff;
+  transition: background-color 0.3s ease; 
+}
+
+.filter-button:hover {
+  background-color: #4A0120; 
+}
+
   
 
   

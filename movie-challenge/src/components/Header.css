@@ -1,29 +1,23 @@
-* {
-  margin:0;
-  padding: 0;
-}
-
 nav {
     display: flex;
     background-color: #4A0120;
+    margin-bottom: 0;
     padding: 0;
     margin: 0;
-    height: 80px;
+    height: 90px;
     width: 100%;
-    background-image: url('../assets/Logos/Logo_3.svg');
+    background-image: url('../assets/Logos/Cine.png');
     background-repeat: no-repeat;
     background-position: center;
-    background-size: 195px;
+    background-size: contain;
     align-items: flex-end;
   }
   
   .search-container {
-    display: flex;
-    justify-content: flex-end;
     align-items: center;
     margin-bottom: 10px;
     background-color: #4A0120;
-    margin-left: 1220px;
+    margin-left: auto;
   }
   
   .search-container input {
@@ -32,11 +26,12 @@ nav {
     border: none;
     border-bottom: 1px solid #ccc; 
     outline: none;
-    background-image: url('../assets/search.svg');
-    background-size: 25px;
+    background-image: url('../assets/Logos/kindpng_2800733.png');
+    background-size: 20px;
     background-repeat: no-repeat;
     background-position: right;
     height: 35px;
-    width: 120px;
+    width: 100px;
+    color: #fff;
   }
   

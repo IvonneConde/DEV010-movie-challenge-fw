@@ -1,11 +1,35 @@
 .grid-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 1rem;
-    max-width: 1200px;
-    width: 100%;
-    margin-top: 20px;
-    margin-left: 60px;
-    
-  }
+  display: flex; 
+  flex-wrap: wrap; 
+  padding: 10px;
+  justify-content: space-around;
+  flex-grow: 4;
+  top: 160px;
+  right: 360px;
+  gap: 8px;
+}
+
+.grid-item {
+  text-align: center;
+  margin-bottom: 10px;
+  border-radius: 5%;
+  width: 220px;
+  height: 360px;
+}
+
+.grid-item:hover {
+  transform: scale(1.1);
+  filter: grayscale(100%)
+}
+
+.grid-item img {
+  max-height: 220px;
+  width: 100%;
+  border-radius: 5%;
+}
+
+h4 {
+  margin-top: 0.3rem;
+}
+
   

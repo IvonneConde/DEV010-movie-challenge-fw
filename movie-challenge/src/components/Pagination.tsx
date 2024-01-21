@@ -1,5 +1,5 @@
 import ReactPaginate from "react-paginate";
-import './Pagination.css';
+import './Pagination.css'
 
 interface PaginationProps {  //definimos las props que esperamos recibir en est ecomponente
     pageCount: number;
@@ -11,17 +11,17 @@ const Pagination: React.FC<PaginationProps> = ({ pageCount, onPageChange }) => {
     return (
         <ReactPaginate
         breakLabel='...'
-        nextLabel='next >'
+        nextLabel='>'
         onPageChange={onPageChange}
         pageRangeDisplayed={3}
-        pageCount={pageCount}
-        previousLabel='< previous'
+        pageCount={5}
         renderOnZeroPageCount={null}
         containerClassName="pagination"
         pageLinkClassName="page-num"
         previousLinkClassName="page-num"
         nextLinkClassName="page-num"
         activeClassName="active"
+        previousLabel='<'
         />
     );
 };

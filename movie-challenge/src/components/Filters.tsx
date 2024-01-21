@@ -1,34 +1,43 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './Filters.css';
 
-const Filters = ({ onFilterChange }) => {
-  const handleFilterChange = (e) => {
-    const selectedFilter = e.target.value;
-    onFilterChange(selectedFilter);
+const Filters = ({ onFilterChange, selectedFilter }) => {
+  const [sortByValue, setSortByValue] = useState('popularity.desc');
+
+  const handleFilterChange = () => {
+    onFilterChange({ ...selectedFilter, sortBy: sortByValue });
+  };
+
+  const handleSortByChange = () => {
+    const newSortBy =
+      sortByValue === 'vote_average.desc' ? 'vote_average.asc' : 'vote_average.desc';
+    setSortByValue(newSortBy);
+    onFilterChange({ ...selectedFilter, sortBy: newSortBy });
+  };
+
+  const handleClearFilters = () => {
+    onFilterChange({ filterBy: '', orderBy: '', sortBy: 'popularity.desc' });
+    setSortByValue('popularity.desc');
+  };
+
+  const handlePopularityChange = () => {
+    const newSortBy =
+      sortByValue === 'popularity.desc' ? 'popularity.asc' : 'popularity.desc';
+    setSortByValue(newSortBy);
+    onFilterChange({ ...selectedFilter, sortBy: newSortBy });
   };
 
   return (
     <section className='filters-container'>
-      <div className='filter-box'>
-        <select id='popularitySelect' onChange={handleFilterChange}>
-          <option value='popularity.desc'>Popularity - Desc</option>
-          <option value='popularity.asc'>Popularity - Asc</option>
-        </select>
-      </div>
-
-      <div className='filter-box'>
-        <select id='ratingSelect' onChange={handleFilterChange}>
-          <option value='vote_average.desc'>Rating - Desc</option>
-          <option value='vote_average.asc'>Rating - Asc</option>
-        </select>
-      </div>
-
-      <div className='filter-box'>
-        <select id='releaseDateSelect' onChange={handleFilterChange}>
-          <option value='release_date.desc'>Release date - Desc</option>
-          <option value='release_date.asc'>Release Date - Asc</option>
-        </select>
-      </div>
+      <button className="filter-button" onClick={handlePopularityChange}>
+        Sort by Popularity
+      </button>
+      <button className="filter-button" onClick={handleSortByChange}>
+        Sort by Rating
+      </button>
+      <button className="filter-button" onClick={handleClearFilters}>
+        Clear Filters
+      </button>
     </section>
   );
 };
