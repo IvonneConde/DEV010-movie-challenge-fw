@@ -1,15 +1,25 @@
 ## 1.0.0 - 2023-11-22
 
-### Sprint learning
+#### Características Nuevas
+- Implementación de una petición con Axios a la API de The Movie Database.
+- Diseño de la estructura del proyecto utilizando React.
+- Utilización efectiva de los Hooks useState y useEffect para la gestión del estado y los efectos secundarios.
+- Modularización del código mediante el uso de props.
 
-- Petición con axios a la API de The Movie Database
-- Estructura con React
-- Uso de Hooks useState y useEffect 
-- Uso de props Modularización
+#### Mejoras
+- Adición de una clave de API para acceder a la API de The Movie Database.
+- Implementación de un buscador de películas para facilitar la búsqueda y filtrado.
 
-### Added
+#### Archivos y Documentación
+- Creación de un archivo Changelog para el registro de cambios en el proyecto.
 
-- API key
-- Visualización de peliculas con GRID
-- Buscador de peliculas 
-- Archivo Changelog
+### Cambios Agregados
+
+- Clave de API para autenticación en la API externa.
+- Incorporación de una funcionalidad de búsqueda para facilitar la exploración de películas.
+
+### Fixes
+
+- Correcciones menores y mejoras en la interfaz de usuario.
+
+
