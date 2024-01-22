@@ -1,22 +1,26 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';  // Agregamos useCallback
 import axios from 'axios';
 import { Route, Routes, BrowserRouter as Router } from 'react-router-dom';
 import Header from './components/Header';
 import MovieGrid from './components/MovieGrid';
 import MovieDetails from './components/MovieDetails';
-import Filters from './components/Filters';
-// import ErrorBoundary from './ErrorBoundary';
-import './App.css';
 import Pagination from './components/Pagination';
+import Filters from './components/Filters';
+import './App.css';
+
+interface Movie {
+  title: string;
+  overview: string;
+  posterUrl: string | null;
+  poster_path: string | null;
+}
 
 function App() {
-  //estados hook useState
-  const [movies, setMovies] = useState([]); //Estado para la lista de peliculas
-  const [searchKey, setSearchKey] = useState(''); //Estado para la busqueda
-  const [currentPage, setCurrentPage] = useState(1); //Estado para la página actual
-  const [totalPages, setTotalPages] = useState(0); //Esrado para el número de páginas
-  const [selectedFilter, setSelectedFilter] = useState({  //Estado para filtros
-    filterBy: 'popularity',
+  const [movies, setMovies] = useState<Movie[]>([]);
+  const [searchKey, setSearchKey] = useState('');
+  const [currentPage, setCurrentPage] = useState<number>(1);
+  const [selectedFilter, setSelectedFilter] = useState({
+    sortBy: 'popularity',
     orderBy: 'desc',
   });
 
@@ -24,10 +28,10 @@ function App() {
   const API_KEY = 'fb29ad88915a994643a2e17f230ac6f2';
   const URL_IMAGE = 'https://image.tmdb.org/t/p/original';
 
-  const fetchMovies = async (searchKey, page = 1) => {
+  const fetchMovies = useCallback(async (searchKey: string, page: number = 1) => {
     const type = searchKey ? 'search' : 'discover';
     try {
-      const response = await axios.get(`${API_URL}/${type}/movie`, {  //Solicitud a la API
+      const response = await axios.get(`${API_URL}/${type}/movie`, {
         params: {
           api_key: API_KEY,
           query: searchKey,
@@ -35,54 +39,51 @@ function App() {
           include_adult: false,
           include_video: false,
           language: 'en-US',
-          sort_by: `${selectedFilter.filterBy}.${selectedFilter.orderBy}`,
-          with_companies: '41077'
+          sort_by: `${selectedFilter.sortBy}.${selectedFilter.orderBy}`,
+          with_companies: '41077',
         },
       });
 
-      const moviesData = response.data.results.map(movie => {
-        const posterUrl = movie.poster_path ? `${URL_IMAGE}${movie.poster_path}`: null;
+      const moviesData = response.data.results.map((movie: Movie) => {
+        const posterUrl = movie.poster_path
+          ? `${URL_IMAGE}${movie.poster_path}`
+          : null;
 
         return {
-          ...movie, 
+          ...movie,
           posterUrl: posterUrl,
         };
       });
 
-      //Actualizamos el estado de las peliculas y el total de las páginas según la API
       setMovies(moviesData);
-      setTotalPages(response.data.total_pages);
     } catch (error) {
-      console.error("Error fetching movies:", error); // manejamos los errores en caso de que falle la solicitud
+      console.error('Error fetching movies:', error);
     }
-  };
+  }, [selectedFilter]);
 
-  const handlePageChange = (selectedPage) => {
+  const handlePageChange = (selectedPage: { selected: number }) => {
     setCurrentPage(selectedPage.selected + 1);
-    fetchMovies(searchKey, selectedPage.selected + 1); // Agrega el parámetro de la página
+    fetchMovies(searchKey, selectedPage.selected + 1);
   };
-  
 
-  const handleFilterChange = (newFilter) => {
+  const handleFilterChange = (newFilter: { sortBy: string }) => {
     if (newFilter && newFilter.sortBy) {
-      const [filterBy, orderBy] = newFilter.sortBy.split('.');
-      setSelectedFilter({ filterBy, orderBy });
+      const [sortBy, orderBy] = newFilter.sortBy.split('.');
+      setSelectedFilter({ sortBy, orderBy });
     }
   };
-  
 
-  useEffect(() => {  //se ejecuta cuando  cambia la palabra clave de búsqueda o filtros
+  useEffect(() => {
     const fetchData = async () => {
-    try {
-      await fetchMovies(searchKey, currentPage);  //llamamos a la función para obtener las pelis según el filtro y la palabra clave
-    } catch (error) {
-      console.error('Error in useEffect:', error);
-    }
-  };
-  
-  fetchData ();
+      try {
+        await fetchMovies(searchKey, currentPage);
+      } catch (error) {
+        console.error('Error in useEffect:', error);
+      }
+    };
 
-}, [searchKey, selectedFilter, currentPage]);
+    fetchData();
+  }, [searchKey, currentPage, fetchMovies]); 
 
   useEffect(() => {
     console.log('Movies after filters', movies);
@@ -90,27 +91,29 @@ function App() {
 
   return (
     <Router>
-      {/* <ErrorBoundary> */}
-        <Header onSearch={setSearchKey} />
-        <Routes>
-          <Route path="/movies/:movieId" element={<MovieDetails />} />
-          <Route
-            path="/"
-            element={
-              <>
-                <Filters onFilterChange={handleFilterChange} selectedFilter={selectedFilter} />
-                <MovieGrid movies={movies} urlImage={URL_IMAGE} />
-                <Pagination
-                  pageCount={5}
-                  pageRangeDisplayed={5}
-                  marginPagesDisplayed={2}
-                  onPageChange={handlePageChange}
-                />
-              </>
-            }
-          />
-        </Routes>
-      {/* </ErrorBoundary> */}
+      <Header onSearch={setSearchKey} />
+      <Routes>
+        <Route path="/movies/:movieId" element={<MovieDetails />} />
+        <Route
+          path="/"
+          element={
+            <>
+              <Filters
+                onFilterChange={handleFilterChange}
+                selectedFilter={selectedFilter}
+              />
+              <MovieGrid movies={movies} urlImage={URL_IMAGE} />
+              <Pagination
+                pageCount={5}
+                pageRangeDisplayed={5}
+                marginPagesDisplayed={2}
+                onPageChange={handlePageChange}
+                key={currentPage}
+              />
+            </>
+          }
+        />
+      </Routes>
     </Router>
   );
 }

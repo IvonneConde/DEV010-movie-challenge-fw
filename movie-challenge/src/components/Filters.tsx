@@ -1,12 +1,21 @@
-import React, { useState } from 'react';
+import PropTypes from 'prop-types';
+import { useState } from 'react';
 import './Filters.css';
 
-const Filters = ({ onFilterChange, selectedFilter }) => {
+interface FiltersProps {
+  onFilterChange: (newFilter: { sortBy: string, orderBy: string }) => void;
+  selectedFilter: {
+    sortBy: string;
+    orderBy: string;
+  };
+}
+
+const Filters: React.FC<FiltersProps> = ({ onFilterChange, selectedFilter }) => {
   const [sortByValue, setSortByValue] = useState('popularity.desc');
 
-  const handleFilterChange = () => {
-    onFilterChange({ ...selectedFilter, sortBy: sortByValue });
-  };
+  // const handleFilterChange = () => {
+  //   onFilterChange({ ...selectedFilter, sortBy: sortByValue });
+  // };
 
   const handleSortByChange = () => {
     const newSortBy =
@@ -16,7 +25,7 @@ const Filters = ({ onFilterChange, selectedFilter }) => {
   };
 
   const handleClearFilters = () => {
-    onFilterChange({ filterBy: '', orderBy: '', sortBy: 'popularity.desc' });
+    onFilterChange({ sortBy: 'popularity.desc', orderBy: '' });
     setSortByValue('popularity.desc');
   };
 
@@ -40,6 +49,14 @@ const Filters = ({ onFilterChange, selectedFilter }) => {
       </button>
     </section>
   );
+};
+
+Filters.propTypes = {
+  onFilterChange: PropTypes.func.isRequired,
+  selectedFilter: PropTypes.shape({
+    sortBy: PropTypes.string.isRequired,
+    orderBy: PropTypes.string.isRequired,
+  }).isRequired,
 };
 
 export default Filters;

@@ -1,11 +1,27 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import './MovieDetails.css';
 import axios from 'axios';
 
+interface Genre {
+  id: number;
+  name: string;
+}
+
+interface MovieDetailsData {
+  title: string;
+  poster_path: string;
+  release_date: string;
+  overview: string;
+  genres: Genre[];
+  runtime: number;
+  vote_average: number;
+  vote_count: number;
+}
+
 const MovieDetails = () => {
-  const { movieId } = useParams();
-  const [movieDetails, setMovieDetails] = useState(null);
+  const { movieId } = useParams<{ movieId: string }>();
+  const [movieDetails, setMovieDetails] = useState<MovieDetailsData | null>(null);
 
   useEffect(() => {
     const fetchMovieDetails = async () => {
@@ -14,8 +30,8 @@ const MovieDetails = () => {
           `https://api.themoviedb.org/3/movie/${movieId}`,
           {
             params: {
-              api_key: 'fb29ad88915a994643a2e17f230ac6f2', 
-              language: 'en-US', 
+              api_key: 'fb29ad88915a994643a2e17f230ac6f2',
+              language: 'en-US',
             },
           }
         );
@@ -72,7 +88,6 @@ const MovieDetails = () => {
       </section>
     </div>
   );
-  
 };
 
 export default MovieDetails;

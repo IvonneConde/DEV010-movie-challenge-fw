@@ -24,7 +24,7 @@ nav {
     margin-right: 0.5rem;
     background-color: #4A0120;
     border: none;
-    border-bottom: 1px solid #ccc; 
+    /* border-bottom: 1px solid #ccc;  */
     outline: none;
     background-image: url('../assets/Logos/kindpng_2800733.png');
     background-size: 20px;
