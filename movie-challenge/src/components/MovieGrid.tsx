@@ -1,7 +1,18 @@
 import './MovieGrid.css';
 import MovieCard from './MovieCard';
 
-const MovieGrid = ({ movies, urlImage }) => {
+interface Movie {
+  id: number;
+  title: string;
+  poster_path: string;
+}
+
+interface MovieGridProps {
+  movies: Movie[];
+  urlImage: string;
+}
+
+const MovieGrid: React.FC<MovieGridProps> = ({ movies, urlImage }) => {
   // Filtrar las películas que tienen póster
   const moviesWithPoster = movies.filter((movie) => movie.poster_path);
 
