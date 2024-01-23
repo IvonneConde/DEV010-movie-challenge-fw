@@ -1,11 +1,6 @@
 import './MovieGrid.css';
 import MovieCard from './MovieCard';
-
-interface Movie {
-  id: number;
-  title: string;
-  poster_path: string;
-}
+import { Movie } from '../App'
 
 interface MovieGridProps {
   movies: Movie[];

@@ -1,11 +1,12 @@
 import './MovieCard.css';
 import { Link } from 'react-router-dom';
+import { Movie } from '../App'
 
-interface Movie {
-  id: number;
-  title: string;
-  poster_path: string;
-}
+// interface Movie {
+//   id: number;
+//   title: string;
+//   poster_path: string;
+// }
 
 const MovieCard: React.FC<{ movie: Movie; urlImage: string }> = ({ movie, urlImage }) => (
   <div className='grid-item'>

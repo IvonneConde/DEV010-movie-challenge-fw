@@ -8,7 +8,8 @@ import Pagination from './components/Pagination';
 import Filters from './components/Filters';
 import './App.css';
 
-interface Movie {
+export interface Movie {
+  id: number;
   title: string;
   overview: string;
   posterUrl: string | null;
