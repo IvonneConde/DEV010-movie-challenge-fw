@@ -1,0 +1,10 @@
+[build]
+  base = "movie-challenge"
+  publish = "movie-challenge/dist"
+  functions = "movie-challenge/.netlify/functions"
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+  force = true
