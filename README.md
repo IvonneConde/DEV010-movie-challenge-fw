@@ -1,6 +1,5 @@
 # CinePhenomena
 
-## Description
 CinePhenomena is a curated catalog of movies showcasing the cinematic works of A24, a prominent independent film production and distribution company. Explore and discover exciting and diverse films that have captured the attention of audiences worldwide.
 
 ## Features
