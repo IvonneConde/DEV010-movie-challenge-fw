@@ -9,8 +9,20 @@ CinePhenomena is a curated catalog of movies showcasing the cinematic works of A
 - **Advanced Search:** Use the search feature to find specific movies.
 - **Intuitive Interface:** Enjoy a user-friendly and visually appealing interface.
 
-## Screenshots
-![Pelis](https://live.staticflickr.com/117/257368762_38bf6fcf9f_h.jpg)
+## Prototypes and Deployment
+
+### Prototypes
+The initial design and layout of CinePhenomena were carefully crafted through multiple iterations and wireframing sessions. Here are some snapshots of the early prototypes:
+
+![Prot1](movie-challenge/src/assets/figma1.png)
+![Prot2](movie-challenge/src/assets/figma2.png)
+
+### Deployment 
+Here are some screenshots of how CinePhenomena lookse:
+
+![Cine](movie-challenge/src/assets/cine1.png)
+![Cine1](movie-challenge/src/assets/cine2.png)
+
 
 ## Installation
 1. Clone the repository: `git clone https://github.com/YourUsername/CinePhenomena.git`
@@ -21,10 +33,12 @@ CinePhenomena is a curated catalog of movies showcasing the cinematic works of A
 - React
 - Vite
 - TypeScript
-- Netlify (or your preferred deployment platform)
+- Vercel
 
 ## Contributions
 Contributions are welcome! If you encounter any issues or have ideas for improvements, please open an issue or submit a pull request.
 
+## About the Developer
+CinePhenomena was developed by **Ivonne Conde**, in collaboration with [**Laboratoria**](https://github.com/Laboratoria). Connect with me on [**LinkedIn**](https://www.linkedin.com/in/ivonne-conde/) for more projects and collaborations.
 
 
