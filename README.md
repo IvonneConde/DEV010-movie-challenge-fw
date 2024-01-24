@@ -17,7 +17,7 @@ The initial design and layout of CinePhenomena were carefully crafted through mu
 ![Prot2](movie-challenge/src/assets/figma2.png)
 
 ### Deployment 
-Here are some screenshots of how CinePhenomena lookse:
+Here are some screenshots of how CinePhenomena looks:
 
 ![Cine](movie-challenge/src/assets/cine1.png)
 ![Cine1](movie-challenge/src/assets/cine2.png)
